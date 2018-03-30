@@ -1,4 +1,3 @@
-<script>
 (function() {
 var jsonArr = []; // array of Json structures
 
@@ -35,8 +34,3 @@ var jsonArr = []; // array of Json structures
 
 
 })();
-
-</script>
-			
-</body>
-</html>
