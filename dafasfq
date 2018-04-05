@@ -1,0 +1,35 @@
+function parse(bank){
+$("select[name='DatesNum']").val('6');
+			$("select[name='DatesNum']").trigger('onchange');
+				$('#balanceTable > tbody > tr').slice(0,3).each(function(i, row){
+					var stringRow = row.id+',';
+					for(i=0; i<7;i++){
+						if(i!=6){
+							stringRow += row.children[i].innerText.trim()+',';}
+						else{
+							stringRow += row.children[i].innerText.trim();}
+					}
+					stringRow += ';';
+					console.log(stringRow);
+				})
+}
+
+
+function set(bank){
+console.log(bank);
+window.location = bank;
+parse (bank);
+}
+
+var numbers = ["1481", "8018", "8001"];
+
+var counter=0
+function count(){
+	bank="http://www.kuap.ru/banks/"+numbers[counter]+"/balances/"; 
+    set(bank);
+    counter+=1;
+    if(counter>=numbers.length){
+        counter=0;
+    }
+}
+setInterval(count(), 1000);
